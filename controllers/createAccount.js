@@ -4,12 +4,6 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var jsonParser = bodyParser.json({ extended: false});
 
-
-
-    var bodyParser = require('body-parser');
-    var jsonParser = bodyParser.json({ extended: false });
-    //var request = require('request');
-
 app.post('/register', jsonParser, function (req, res) {
         var email = req.body.email;
         var password = req.body.password;
