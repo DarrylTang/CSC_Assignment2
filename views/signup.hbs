@@ -9,12 +9,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
   <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
   <!-- Title Icon -->
   <link rel='shortcut icon' type='image/x-icon' href='/public/resources/img/title.ico' />
@@ -28,136 +28,56 @@
   <!-- Custom styles for this template -->
   <link href="..//stylesheets/main.css" rel="stylesheet">
 
-  <title>Create SLO/LO Accounts</title>
+  <title>Sign Up</title>
 </head>
 
 <body>
-
-
-
-  <nav class="navbar navbar-light fixed-top bg-light flex-md-nowrap p-0 shadow justify-content-end">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-auto no-barba" href="/slo/assignment.html">
-      <img src="/resources/img/sp.png" height="40" alt="">
-    </a>
-    <ul class="navbar-nav px-3">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          John Doe
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/slo/inviteList.html">Invite List</a>
-          <a class="dropdown-item" href="/slo/reset.html">Reset</a>
-            <a class="dropdown-item" href="/slo/selfSource.html">Self Source Forms</a>
-          <a class="dropdown-item" href="/slo/notes.html">Notes</a>
-          <a class="dropdown-item no-barba" href="/slo/inviteList-email-template.html">Email Template</a>
-          <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+  <div class="container-fluid">
+    <div class="row">
+      <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-2 pt-3 pb-2">
+          <h3>Sign Up</h3>
         </div>
-      </li>
-    </ul>
-  </nav>
-
-
-
-
-  <!-- every page requires a barba wrapper and container. This is used to swap content inside of it. -->
-  <div id="barba-wrapper">
-    <div class="barba-container">
-      <div class="container-fluid">
-        <div class="row">
-          <nav class="col-md-2 d-none d-md-block sidebar">
-            <div class="sidebar-sticky">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="/slo/guidelines.html">
-                    <i class="fas nav-fa fa-chalkboard"></i>
-                    <span data-feather="file"></span>
-                    Guidelines
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/slo/assignment.html">
-                    <i class="fas nav-fa fa-file-signature"></i>
-                    <span data-feather="shopping-cart"></span>
-                    Assignment
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/slo/students.html">
-                    <i class="fas nav-fa fa-user"></i>
-                    <span data-feather="bar-chart-2"></span>
-                    Students
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/slo/companies.html">
-                    <i class="fas nav-fa fa-briefcase"></i>
-                    <span data-feather="layers"></span>
-                    Companies
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/slo/lo.html">
-                    <i class="fas nav-fa fa-users"></i>
-                    <span data-feather="layers"></span>
-                    Liason Officer
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/slo/report.html">
-                    <i class="fas nav-fa fa-clipboard"></i>
-                    <span data-feather="layers"></span>
-                    Report
-                  </a>
-                </li>
-              </ul>
+        <div class="container-fluid card">
+          <form onsubmit="return false;" id="registerForms">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" id="emailReg" class="form-control input-lg" placeholder="Enter email" required>
+              <!-- <input type="email" class="form-control input -lg" id="inputEmail" aria-describedby="emailHelp" required placeholder="Enter email"> -->
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
-          </nav>
-
-          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-2 pt-3 pb-2">
-              <h3>Create Accounts</h3>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input id="passwordReg" type="password" value="" class="form-control input-lg"
+                placeholder="Enter Password" required>
+              <!-- <input type="password" class="form-control input -lg " id="inputPassword" placeholder="Password"> -->
             </div>
-            <div class="container-fluid card">
-              <p>Create SLO admin and LO accounts with the fields down below. </p>
-              <p> Please select if you're a SLO or LO</p>
-              <form onsubmit="return false;" id="registerForms">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" id="emailReg" class="form-control input-lg" placeholder="Enter email" required>
-                  <!-- <input type="email" class="form-control input -lg" id="inputEmail" aria-describedby="emailHelp" required placeholder="Enter email"> -->
-                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input id="passwordReg" type="password" value="" class="form-control input-lg" placeholder="Enter Password"
-                    required>
-                  <!-- <input type="password" class="form-control input -lg " id="inputPassword" placeholder="Password"> -->
-                </div>
-                <!-- <button type="submit" class="btn btn-primary">Create</button> -->
-                <input type="submit" onclick="register()" value="Register" class="btn btn-primary mr-3">
-                <select id="RoleSelect">
-                  <option value="SLO">SLO</option>
-                  <option value="LO">LO</option>
-                  <!-- <option value="Student">Student</option>     -->
-                </select>
-              </form>
-            </div>
-
-          </main>
+            <!-- <button type="submit" class="btn btn-primary">Create</button> -->
+            <input type="submit" onclick="register()" value="Register" class="btn btn-primary mr-3">
+            <select id="RoleSelect">
+              <option value="SLO">SLO</option>
+              <option value="LO">LO</option>
+              <!-- <option value="Student">Student</option>     -->
+            </select>
+          </form>
         </div>
-      </div>
+
+      </main>
     </div>
   </div>
 
 
 
+
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
   <script src="/resources/dropzone.js" type="text/javascript"></script>
 
