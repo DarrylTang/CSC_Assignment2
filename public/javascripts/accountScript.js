@@ -1,8 +1,3 @@
-grecaptcha.ready(function () {
-  grecaptcha.execute('6LdR0ZAUAAAAAP41YPC9xj7dncGCAJGuT1CMnrqi', { action: 'homepage' }).then(function (token) {
-  });
-});
-
 $('#registerBtn').click(function () {
   var email = document.getElementById("emailReg").value;
   var password = document.getElementById("passwordReg").value;
