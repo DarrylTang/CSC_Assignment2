@@ -3,7 +3,27 @@ var app = express();
 var bodyParser = require('body-parser');
 var request = require('request');
 var jsonParser = bodyParser.json({ extended: false});
+const firebase = require('firebase');
+var admin = require("firebase-admin");
 
+// for firebase 
+var firebaseConfig = {
+    apiKey: "AIzaSyBiReRUpgbfVWb2QeUaGrtFQS3NYdrm2r4",
+    authDomain: "cscassignment-6c46c.firebaseapp.com",
+    databaseURL: "https://cscassignment-6c46c.firebaseio.com",
+    projectId: "cscassignment",
+    storageBucket: "cscassignment.appspot.com",
+    messagingSenderId: "705266244318"
+  };
+  firebase.initializeApp(firebaseConfig);
+  
+  var serviceAccount = require("../cscassignment-firebase-adminsdk-4elk8-0aac5c8180.json");
+  
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://cscassignment-6c46c.firebaseio.com"
+  });
+  
 app.post('/register', jsonParser, function (req, res) {
         var email = req.body.email;
         var password = req.body.password;
