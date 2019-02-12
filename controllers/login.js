@@ -1,5 +1,5 @@
 var express = require('express');
-const mongo = require('mongodb').MongoClient
+const mongo = require('mongodb').MongoClient;
 var bcrypt = require('bcryptjs');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
@@ -24,6 +24,7 @@ mongo.connect(mongoURI, function(err, client) {
     
     var bodyParser = require('body-parser');
     var jsonParser = bodyParser.json({ extended: false });
+    
     app.post('/api/loginSlo', jsonParser, function (req, res) {
         var email = req.body.email;
         var password = req.body.password;
