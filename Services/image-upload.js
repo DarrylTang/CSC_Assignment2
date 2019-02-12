@@ -1,8 +1,9 @@
 var aws = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
+//var descriptions = req.body.description;
 
-
+var s3Bucket = new aws.S3( { params: {Bucket: 'cscimageuploading'} } )
 aws.config.update({
   // Your SECRET ACCESS KEY from AWS should go here,
   // Never share it!
@@ -19,7 +20,7 @@ aws.config.update({
 const s3 = new aws.S3();
 
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+  if (file.mimetype === 'image/jpg' || file.mimetype === 'image/png') {
     cb(null, true);
   } else {
     cb(new Error('Invalid file type, only JPEG and PNG is allowed!'), false);
@@ -39,6 +40,11 @@ const upload = multer({
       cb(null, Date.now().toString()+'.jpg')
     }
   })
+});
+
+var urlParams = {Bucket: 'myBucket', Key: 'imageName'};
+s3Bucket.getSignedUrl('getObject', urlParams, function(err, url){
+  console.log('the url of the image is', url);
 })
 
 module.exports = upload;

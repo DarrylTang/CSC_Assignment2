@@ -4,7 +4,7 @@ var app = express();
 const upload = require('../Services/image-upload');
 var aws = require('aws-sdk');
 
-const singleUpload = upload.single('image')
+const singleUpload = upload.single('image');
 
 
 aws.config.update({
@@ -32,7 +32,7 @@ app.post('/image-upload', function (req, res) {
 
     return res.json({ 'imageUrl': req.file.location });
   });
-})
+});
 
 app.get('/getOneImage', (req, res) => {
   var filepath = req.query.image_path;

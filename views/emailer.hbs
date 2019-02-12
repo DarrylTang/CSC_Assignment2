@@ -21,11 +21,32 @@
   <!-- Custom styles for this template -->
   <link href="/stylesheets/style.css" rel="stylesheet">
 
-  <title>Assignment</title>
+  <title>Emailer</title>
 </head>
 
 <body>
   <div id="mainPage" class="animate-bottom">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+        <a class="navbar-brand" href="#">The Life Time Talents</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/emailer">Email Talents</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container-fluid">
       <div class="row">
         <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
@@ -59,7 +80,7 @@
               </div>
             </form>
           </div>
-          <a class="btn btn-primary text-white btn-sm btn-longer mt-3 float-right mb-3" id="sendEmailBtn" onclick="sendEmail()"
+          <a class="btn btn-primary text-white btn-sm btn-longer m-3" id="sendEmailBtn" onclick="sendEmail()"
             role="button">Send</a>
         </main>
       </div>
