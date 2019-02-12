@@ -48,9 +48,10 @@
                     Upload Your Image
                 </button>
             </div>
-            <div class="card-deck">
+            {{!-- <div class="card-deck">
                 <div class="card">
-                    <img class="card-img-top" src="/images/dog.jpg">
+                    <img class="card-img-top"
+                        src="http://localhost:3000/getOneImage?image_path=1549964807263.jpg&userid=plswork">
                     <div class="card-body">
                         <p class="card-text">Here is my dog Rubbie, he likes to frolick in the snow and make doggie
                             snowangels! #haha #dog</p>
@@ -73,7 +74,25 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+
+            <table class="table" id="imageTable">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">-</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mark</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#viewModal">View and Comment</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </main>
     </div>
 
@@ -83,8 +102,9 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img class="card-img-top" src="/images/dog.jpg">
-                    <p class="card-text">Here is my dog Rubbie, he likes to frolick in the snow and make doggie
+                    <img id="image" class="card-img-top mb-3"
+                        src="http://localhost:3000/getOneImage?image_path=1549964807263.jpg&userid=plswork">
+                    <p id="description" class="card-text">Here is my dog Rubbie, he likes to frolick in the snow and make doggie
                         snowangels! #haha #dog</p>
                     <div id="disqus_thread"></div>
                     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
@@ -107,7 +127,7 @@
                         <textarea name="description" id="description" rows="5"></textarea>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success" >Upload</button>
+                            <button type="submit" class="btn btn-success">Upload</button>
                         </div>
                     </form>
                 </div>
@@ -124,6 +144,50 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
     <script src="/javascripts/disqus.js" type="text/javascript"></script>
+    <script>
+        $.ajax({
+            url: "/getImages",
+            type: 'GET',
+            contentType: 'application/json; charset=utf-8'
+        }).done(function (data) {
+            $.each(data, function (key, value) {
+                tableData += '<tr>';
+                tableData += '<td>' + value.image_path.S + '</td>';
+                tableData += '<td>button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal" data-imagepath="'+value.image_path.S'" data-description="' + value.description.S + '" data-userid="' + value.userid.S + '">View and Comment</button></td>';
+                tableData += '</tr>';
+            });
+            $('tbody', '#imageTable').append(tableData);
+        })
+            .done(function () {
+
+            })
+            .fail(function () {
+                alert("Table retriveal failed!");
+            });
+
+        $('#viewModal').on('show.bs.modal', function (event) {
+            var a = $(event.relatedTarget); // Button that triggered the modal
+            var userID = a.attr('data-userid');
+            var description = a.attr('data-description');
+            var image_path = a.attr('data-imagepath');
+            var modal = $(this);
+            var query = {
+                image_path : image_path,
+                userid : userID
+            }
+            $.ajax({
+                data: 
+                url: "/getOneImage",
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8'
+            }).done(function (data) {
+                $.each(JSON.parse(data), function (key, value) {
+                    modal.find('#description').text(value.name);
+                    modal.find('#image').attr("src", value.);
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

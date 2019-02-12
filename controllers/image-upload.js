@@ -11,17 +11,17 @@ aws.config.update({
   // Your SECRET ACCESS KEY from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
-  secretAccessKey: "scv2mKofr0TsyrgGdeMBaDkpgjeoDDYFm3xhDKfo",
+  secretAccessKey: "NEs77VUtLnU5rT77+jglx/kJBlbnlLL+4RhCLLLz",
   // Not working key, Your ACCESS KEY ID from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
-  accessKeyId: "ASIA6EZFZYG2PC43P7DT",
-  sessionToken: "FQoGZXIvYXdzEGQaDMGCh1h7zRyRmk8eKyL1AuLieXXlP7N659XI6044xNlmk18N7y5w2NJHQxHN5QsL3+JlF6ML5Qz7WWWZUoJmaPrzz780CrolLY3jmApE8cQexDLtjD4A4dHDHatkUmeGnLBukFOes+CYBLhLG/9Kto2VjigAKLYS+L+xVkJRvKV+PzgJ9Ac+OFP/khxSBouQjpcvUQiAe+nmNejhahpVOPki7AaUyEo111PK7ZJFSAqx6daGnKRXE6T8joXF0PQJ7hsNj1n0NWBkwYu+KmPG3RuD4IkM/xDeAI4Adeq2HeoiDlqeaWNUgdpLaWFtM9H/H2wSg6xAtErc3DsBl7OVKNj5haSMBJ7M93wxYPxvgR7Npf2tle0iG2aRaO2ArScMO6wHb3kjme6eeaSqoRNTx8IalrVppo+YTaKEMinhV390j/PWYYzxxr4O3oukUKXKzbSQiNsX1R9hBPHBcVhbEMn3doY/d7m+9bXWz6cIWPW/naHdwpHeZgwroKz75XAb5zadI1go0b2K4wU=",
-    region: 'ap-southeast-1' // region of your bucket
+  accessKeyId: "ASIA6EZFZYG2L3ZKQJUY",
+  sessionToken: "FQoGZXIvYXdzEGUaDAAST1f9Aaqn0OPHliL1Au4KKUiSZrl43m36tdJ+IQcA3WlPVcgslsM6YQKNbrUsobL/FfkwrNCce+Licxo/nf3lDNXJ2xcR0PcT97pcAa4a6Eh8oORv0TekWR0azROuIahEpRha2oTZqMaK6o+rVKWM79c0EzTOuzrEM3lU0AGxTGsnKUsrtO5dr6Ts3yGYcpysmSpK/N+hq5e8jXEwgzHwlSYPFLF3kTXiW4Ty+DpO/ww8yo0DP1669fsmxzy79ygjLBIeROVusfVxjgZEnzRz+CgJpkIuGdcaCRCvxf/D3oc0PwpyEh2R6dISHC+DCFcRg8oWLv74R+8eioDn7R+4BrJXOZiqFj5pmkLAOLTldEz5fRh04X/vWXz9GwU28kG33lPEeAhqMcjgU8gS0l4DSeA3g3JXAORpzF81HdTI3oIvTnKyLji2Gz5lwvxgns+1IPuYMutphovlN0PJ5rsYQPNOxhS+D8N94y0F7yPwd+Jdp48S16Y5M7U53lzUud0UVs0o5N2K4wU=", 
+  region: 'ap-southeast-1' // region of your bucket
 });
 
 var ddb = new aws.DynamoDB({ apiVersion: '2012-08-10' });
-var s3 = new aws.S3({params: {Bucket: 'cscimageuploading' }});
+var s3 = new aws.S3({ params: { Bucket: 'cscimageupload' } });
 
 
 app.post('/image-upload', function (req, res) {
@@ -38,7 +38,7 @@ app.get('/getOneImage', (req, res) => {
   var filepath = req.query.image_path;
   var userid = req.query.userid;
 
-  console.log(filepath); 
+  console.log(filepath);
   console.log(userid)
 
   var params = {
@@ -49,25 +49,42 @@ app.get('/getOneImage', (req, res) => {
     }
   };
 
-  // Call DynamoDB to read the item from the table
+  //Call DynamoDB to read the item from the table
   ddb.getItem(params, function (err, data) {
     if (err) {
       console.log("Error", err);
     } else {
-     // console.log("Success", data.Item);
-     var params = { Bucket: "cscimageupload", Key: data.Item.image_path.S };
-     s3.getObject(params, function(err, data) {
+      // console.log("Success", data.Item);
+      var params = { Bucket: "cscimageupload", Key: data.Item.image_path.S };
+      s3.getObject(params, function (err, data) {
         console.log("RETURN _---")
-         res.writeHead(200, {'Content-Type': 'image/jpeg'});
-         res.write(data.Body, 'binary');
-         res.end(null, 'binary');
-     });
+        res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+        res.write(data.Body, 'binary');
+        console.log(data.Metadata);
+        res.end(null, 'binary');
+      });
 
       //console.log(data)
       //return data;
     }
   });
 
-})
+});
+
+app.get('/getImages', (req, res) => {
+  var params = {
+    TableName: "csc_image"
+  };
+
+  ddb.scan(params, (err, data) => {
+    if (err) {
+      console.log("Error", err);
+    } else {
+      console.log(data)
+      res.send(data)
+    }
+  });
+
+});
 
 module.exports = app;
