@@ -14,11 +14,9 @@ app.post('/register', jsonParser, function (req, res) {
         var password = req.body.password;
         var recaptcha = req.body.recaptcha;
         var hostName = req.body.hostName;
+        console.log("HI" + recaptcha);
         
-        if(recaptcha == null || recaptcha == undefined || recaptcha == '') {
-            res.send({ "success":false, "errorMsg" : "Please select captcha" });
-        }
-        else {
+        if(recaptcha != null || recaptcha != undefined || recaptcha != '') {
             var secretKey = "6Le40ZAUAAAAALyy3BgGkhQe08NfvKTwGzweEaO0";
             var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey
                 + "&response=" + recaptcha + "&remoteip=" + req.connection.remoteAddress;
@@ -31,6 +29,9 @@ app.post('/register', jsonParser, function (req, res) {
                     res.send({success: true});
                 }
             });
+        }
+        else {
+            res.send({ "success":false, "errorMsg" : "Please select captcha" });
         }
     });
 

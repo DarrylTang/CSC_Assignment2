@@ -3,7 +3,7 @@ $('#registerBtn').click(function () {
   var password = document.getElementById("passwordReg").value;
   var name = document.getElementById("nameReg").value;
   var repassword = document.getElementById("rePasswordReg").value;
-
+  
   var ok = true;
   if (document.getElementById("registerForms").checkValidity()) {
     if (password != repassword) {
