@@ -31,7 +31,7 @@ const upload = multer({
     bucket: 'cscimagetest',
     //acl: 'public-read',
     metadata: function (req, file, cb) {
-      cb(null, {fieldName: file.fieldname , john: 'plswork'});
+      cb(null, {fieldName: file.fieldname , john: 'plswork', description: 'omg i like this image alot pls like me'});
     },
     key: function (req, file, cb) {
       cb(null, file.originalname)
