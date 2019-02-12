@@ -29,6 +29,7 @@ app.post('/register', jsonParser, function (req, res) {
         var password = req.body.password;
         var recaptcha = req.body.recaptcha;
         var hostName = req.body.hostName;
+        var name = req.body.name;
         console.log(recaptcha + "HI");
         
         if(recaptcha == null || recaptcha == undefined || recaptcha == '') {
@@ -47,6 +48,26 @@ app.post('/register', jsonParser, function (req, res) {
                 }
                 else {
                     res.send({"success": true});
+                    admin.auth().createUser({
+                        email: email,
+                        emailVerified: false,
+                        password: password,
+                        displayName: name
+                      }).then(function (userRecord) {
+                       /*
+                        var ref = admin.database().ref("users").child(userRecord.uid);
+                        ref.set({
+                          email: email,
+                          name: name,
+                          password: md5(password),
+                        });
+                        */
+                       // for add to db in aws 
+                        console.log("Successfully created new user:", userRecord.uid);
+                        res.end();
+                      }).catch(function (error) {
+                        console.log('Error creating new user:' + error);
+                      });
                 }
             });
         }
