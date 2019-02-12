@@ -30,7 +30,6 @@ app.post('/register', jsonParser, function (req, res) {
         var recaptcha = req.body.recaptcha;
         var hostName = req.body.hostName;
         var name = req.body.name;
-        console.log(recaptcha + "HI");
         
         if(recaptcha == null || recaptcha == undefined || recaptcha == '') {
             res.send({ "success":false, "errorMsg" : "Please complete captcha" });
