@@ -35,9 +35,10 @@
                 </div>
                 <div class="row pl-3">
                     <button type="submit" class="btn dark-blue-btn mr-2" id="loginBtn">Login</button>
-                    <button href="#createStudentModal" data-toggle="modal"
+                    <button class="btn btn-primary dark-blue-btn mr-2" id="SignUpBtn">Sign Up</button>
+                 <!--   <button href="#createStudentModal" data-toggle="modal"
                         class="btn btn-primary dark-blue-btn mr-2">Sign
-                        Up</button>
+                        Up</button>-->
                 </div>
                 <div class="row mt-3 ml-1">
                     <!-- <a href="#" class="text-primary">Forgot your password?</a> -->
@@ -142,6 +143,9 @@
             }
         });
 
+$('#SignUpBtn').click(function () {
+ window.location.href = "http://localhost:3000/register";
+});
     </script>
 </body>
 
