@@ -116,9 +116,6 @@
         type: "POST",
         url: "/sendEmail",
         contentType: "application/json",
-        headers: {
-          Authorization: 'Bearer ' + authToken
-        },
         data: JSON.stringify({
           bcc: bcc,
           cc: cc,
