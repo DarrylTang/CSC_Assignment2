@@ -28,6 +28,8 @@
   <!-- Custom styles for this template -->
   <link href="..//stylesheets/main.css" rel="stylesheet">
 
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <title>Sign Up</title>
 </head>
 
@@ -39,7 +41,7 @@
           <h3>Sign Up</h3>
         </div>
         <div class="container-fluid card">
-          <form onsubmit="return false;" id="registerForms">
+          <form onsubmit="return false;" id="registerForms" action="verify.js" method="post">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
               <input type="email" id="emailReg" class="form-control input-lg" placeholder="Enter email" required>
@@ -53,6 +55,8 @@
               <!-- <input type="password" class="form-control input -lg " id="inputPassword" placeholder="Password"> -->
             </div>
             <!-- <button type="submit" class="btn btn-primary">Create</button> -->
+
+            <div class="g-recaptcha" data-sitekey="6Le40ZAUAAAAAJIffRJqVO_nM1joDigNI5-Vob1x"></div>
             <input type="submit" onclick="register()" value="Register" class="btn btn-primary mr-3">
             <select id="RoleSelect">
               <option value="SLO">SLO</option>
@@ -61,7 +65,6 @@
             </select>
           </form>
         </div>
-
       </main>
     </div>
   </div>
@@ -80,7 +83,14 @@
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
   <script src="/resources/dropzone.js" type="text/javascript"></script>
-
+  <script src="https://www.google.com/recaptcha/api.js?render=6LdR0ZAUAAAAAP41YPC9xj7dncGCAJGuT1CMnrqi"></script>
+  <script>
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6LdR0ZAUAAAAAP41YPC9xj7dncGCAJGuT1CMnrqi', { action: 'homepage' }).then(function (token) {
+         ...
+      });
+  });
+  </script>
   <script>
     function register() {
       var role = document.getElementById("RoleSelect").value;
@@ -110,7 +120,7 @@
           var regData = {
             email: email,
             password: password,
-            //recaptcha: grecaptcha.getResponse(),
+            recaptcha: grecaptcha.getResponse(),
             hostName: window.location.host
           };
           if (role == 'LO') {

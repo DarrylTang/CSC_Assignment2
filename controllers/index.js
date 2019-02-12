@@ -11,4 +11,8 @@ router.get('/emailer', function(req, res, next) {
   res.render('emailer');
 });
 
+router.get('/register', function(req, res, next) {
+  res.render('signup', { title: 'Register' });
+});
+
 module.exports = router;
