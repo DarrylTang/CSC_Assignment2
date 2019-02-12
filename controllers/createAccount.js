@@ -9,31 +9,7 @@ let middleware = require('./middleware');
 
 var app = express();
 
-/*
-	Make a MongoDB connection
-*/
-var mongoURI = 'mongodb://localhost:27017';
 
-mongo.connect(mongoURI, function(err, client) {
-    if (err) throw err;
-
-    const db = client.db('Internship-System');
-    const collection = db.collection('slo_accounts');
-    
-    app.get('/api/checkSloEmailExists/:email', function (req, res) {
-        var email = req.params.email;
-        var query = { email: email };
-        collection.find(query).toArray(function(err, result) {
-            if (err) throw err;
-            if(result.length == 1) {
-                res.send(true);
-            }
-            else {
-                res.send(false);
-            }
-        });
-        //db.close();
-    });
 
     var bodyParser = require('body-parser');
     var jsonParser = bodyParser.json({ extended: false });
