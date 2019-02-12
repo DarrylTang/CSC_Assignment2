@@ -1,6 +1,3 @@
-var express = require('express');
-const mongo = require('mongodb').MongoClient;
-var bcrypt = require('bcryptjs');
 var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 let jwt = require('jsonwebtoken');
