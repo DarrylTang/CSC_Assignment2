@@ -1,17 +1,15 @@
-var crypto = require('crypto');
-var nodemailer = require('nodemailer');
-let jwt = require('jsonwebtoken');
-let config = require('./config');
-let middleware = require('./middleware');
-
+var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+var jsonParser = bodyParser.json({ extended: false});
 
 
 
     var bodyParser = require('body-parser');
     var jsonParser = bodyParser.json({ extended: false });
     //var request = require('request');
-    app.post('/api/register', jsonParser, function (req, res) {
+
+app.post('/register', jsonParser, function (req, res) {
         var email = req.body.email;
         var password = req.body.password;
         var recaptcha = req.body.recaptcha;

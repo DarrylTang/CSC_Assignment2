@@ -33,7 +33,7 @@ $('#registerBtn').click(function () {
       $.ajax({
         data: JSON.stringify(regData),
         dataType: 'json',
-        url: '/createAccount/register/',
+        url: '/createAccount/register',
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
