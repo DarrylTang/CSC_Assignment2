@@ -171,6 +171,7 @@
                 userid : userID
             }
             modal.find('#image').attr("src", "http://localhost:3000/getOneImage?image_path="+image_path+"&userid="+userID+"")
+            modal.find('#description').text(description);
             /*$.ajax({
                 data: query,
                 url: "/getOneImage",

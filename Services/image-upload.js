@@ -27,6 +27,10 @@ const fileFilter = (req, file, cb) => {
   }
 }
 
+var description = ["I love CSC <3", "SOC BEST SCHOOL", "if you can find thi s it means its too late", "i love mr G his teaching is very nice please give us the distinction", ""];
+
+ var index =  Math.floor(Math.random() * 4) + 1; 
+
 const upload = multer({
   fileFilter,
   storage: multerS3({
@@ -34,7 +38,7 @@ const upload = multer({
     bucket: 'cscimageupload',
     //acl: 'public-read',
     metadata: function (req, file, cb) {
-      cb(null, {fieldName: file.fieldname , userid: 'plswork', description: 'omg i like this image alot pls like me'});
+      cb(null, {fieldName: file.fieldname , userid: 'plswork', description: description[index]});
     },
     key: function (req, file, cb) {
       cb(null, Date.now().toString()+'.jpg')
