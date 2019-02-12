@@ -3,7 +3,7 @@ const router = express.Router();
 var app = express();
 const upload = require('../Services/image-upload');
 
-const singleUpload = upload.single('image')
+const singleUpload = upload.single('image');
 
 app.post('/image-upload', function(req, res) {
   singleUpload(req, res, function(err, some) {
@@ -13,6 +13,6 @@ app.post('/image-upload', function(req, res) {
 
     return res.json({'imageUrl': req.file.location});
   });
-})
+});
 
 module.exports = app;
