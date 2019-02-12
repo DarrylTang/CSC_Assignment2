@@ -6,6 +6,7 @@ function register() {
     var role = document.getElementById("RoleSelect").value;
     var email = document.getElementById("emailReg").value;
     var password = document.getElementById("passwordReg").value;
+    var name = document.getElementById("nameReg").value;
     //var repassword = document.getElementById("repasswordReg").value;
 
     //var ok = true;
@@ -29,6 +30,7 @@ function register() {
       else {
         var regData = {
           email: email,
+          name: name,
           password: password,
           recaptcha: grecaptcha.getResponse(),
           hostName: window.location.host
