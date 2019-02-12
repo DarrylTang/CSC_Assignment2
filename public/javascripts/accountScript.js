@@ -1,8 +1,3 @@
-grecaptcha.ready(function () {
-  grecaptcha.execute('6LdR0ZAUAAAAAP41YPC9xj7dncGCAJGuT1CMnrqi', { action: 'homepage' }).then(function (token) {
-  });
-});
-
 $('#registerBtn').click(function () {
   var email = document.getElementById("emailReg").value;
   var password = document.getElementById("passwordReg").value;
@@ -35,25 +30,21 @@ $('#registerBtn').click(function () {
         recaptcha: grecaptcha.getResponse(),
         hostName: window.location.host
       };
-      fetch(new Request('/api/register',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(regData)
-        })).then(function (response) {
-          return response.json();
-        }).then(function (data) {
-          if (!data.success) {
-            alert(data.errorMsg);
-          }
-          else {
-            alert('You have registered successfully. A link will be sent to your email for you to activate your account.');
-          }
-        }).catch(function (error) {
-          console.log(error);
-        });
+      $.ajax({
+        data: JSON.stringify(regData),
+        dataType: 'json',
+        url: '/createAccount/register/',
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+          console.log("Account Created for " + data);
+          
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          console.log("Status: " + textStatus);
+          console.log("Error: " + errorThrown);
+        }
+      });
     }
   }
 });
