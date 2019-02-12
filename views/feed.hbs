@@ -21,8 +21,33 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+        <a class="navbar-brand" href="#">The Life Time Talents</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/emailer">Email Talents</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+            <div class="row">
+                <button type="button" class="btn btn-success ml-3 mb-3" data-toggle="modal" data-target="#uploadModal">
+                    Upload Your Image
+                </button>
+            </div>
             <div class="card-deck">
                 <div class="card">
                     <img class="card-img-top" src="/images/dog.jpg">
@@ -32,7 +57,7 @@
                     </div>
                     <div class="card-footer">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#exampleModalCenter">
+                            data-target="#viewModal">
                             View and Comment
                         </button>
                     </div>
@@ -45,7 +70,7 @@
                     </div>
                     <div class="card-footer">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#exampleModalCenter">
+                            data-target="#viewModal">
                             View and Comment
                         </button>
                     </div>
@@ -54,9 +79,9 @@
         </main>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- View Modal -->
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog"
+        aria-labelledby="viewModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -67,8 +92,21 @@
                     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
                             powered by Disqus.</a></noscript>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog"
+        aria-labelledby="uploadModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action=""></form>
+                    <textarea name="description" id="description" rows="5"></textarea>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Upload</button>
                 </div>
             </div>
         </div>
