@@ -3,7 +3,7 @@ $('#registerBtn').click(function () {
   var password = document.getElementById("passwordReg").value;
   var name = document.getElementById("nameReg").value;
   var repassword = document.getElementById("rePasswordReg").value;
-
+  
   var ok = true;
   if (document.getElementById("registerForms").checkValidity()) {
     if (password != repassword) {
@@ -33,7 +33,7 @@ $('#registerBtn').click(function () {
       $.ajax({
         data: JSON.stringify(regData),
         dataType: 'json',
-        url: '/createAccount/register/',
+        url: '/createAccount/register',
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
