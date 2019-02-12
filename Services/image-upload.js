@@ -41,10 +41,20 @@ const upload = multer({
   })
 })
 
-var urlParams = {Bucket: 'myBucket', Key: 'imageName'};
-s3Bucket.getSignedUrl('getObject', urlParams, function(err, url){
-  console.log('the url of the image is', url);
-})
+
+// https://stackoverflow.com/questions/32702431/display-images-fetched-from-s3
+
+//ar s3Url = 'https://s3-us-east-1.amazonaws.com/cscimageuploading/';
+var bucket = new aws.S3({params: {Bucket: 'cscimageuploading' }});
+  bucket.listObjects(function (err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      
+      bucket.allImageData = data.Contents;
+      console.log(data.Contents);
+    }
+  });
 
 module.exports = upload;
 
