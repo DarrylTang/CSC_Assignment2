@@ -86,7 +86,7 @@ app.post('/register', jsonParser, function (req, res) {
                             console.log("Error", err);
                         } else {
                          //   console.log("Success", data); 
-                            //res.send({"success": true});
+                        res.send({"success": true});
                         }
                     });
                     // for add to db in aws 
