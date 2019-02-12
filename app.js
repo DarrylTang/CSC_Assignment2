@@ -13,16 +13,9 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
-<<<<<<< HEAD
-app.set('view engine', 'hbs');
-
-// app.engine('html', require('hbs').renderFile);
-// app.set('view engine', 'html');
-=======
 // app.set('view engine', 'hbs');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
->>>>>>> 2864a19e8c06ef412486c90849c2b2cd699ca218
 
 app.use(logger('dev'));
 app.use(express.json());
