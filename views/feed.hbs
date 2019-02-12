@@ -56,8 +56,7 @@
                             snowangels! #haha #dog</p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#viewModal">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal">
                             View and Comment
                         </button>
                     </div>
@@ -69,8 +68,7 @@
                             snowangels! #haha #dog</p>
                     </div>
                     <div class="card-footer">
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#viewModal">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal">
                             View and Comment
                         </button>
                     </div>
@@ -80,8 +78,8 @@
     </div>
 
     <!-- View Modal -->
-    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog"
-        aria-labelledby="viewModalTitle" aria-hidden="true">
+    <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="viewModalTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -97,16 +95,21 @@
     </div>
 
     <!-- Upload Modal -->
-    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog"
-        aria-labelledby="uploadModalTitle" aria-hidden="true">
+    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form action=""></form>
-                    <textarea name="description" id="description" rows="5"></textarea>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Upload</button>
+                    <form action="/image-upload" method="POST">
+                        <div class="row mb-3 ml-2">
+                            <input type="file" id="imageFile">
+                        </div>
+                        <textarea name="description" id="description" rows="5"></textarea>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success" >Upload</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
