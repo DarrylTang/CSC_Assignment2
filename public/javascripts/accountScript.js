@@ -2,27 +2,27 @@ grecaptcha.ready(function () {
     grecaptcha.execute('6LdR0ZAUAAAAAP41YPC9xj7dncGCAJGuT1CMnrqi', { action: 'homepage' }).then(function (token) {
     });
 });
-function register() {
-    var role = document.getElementById("RoleSelect").value;
+
+$('#registerBtn').click(function () {
     var email = document.getElementById("emailReg").value;
     var password = document.getElementById("passwordReg").value;
     var name = document.getElementById("nameReg").value;
-    //var repassword = document.getElementById("repasswordReg").value;
+    var repassword = document.getElementById("rePasswordReg").value;
 
-    //var ok = true;
+    var ok = true;
     if (document.getElementById("registerForms").checkValidity()) {
-      // if (password != repassword) {
-      //     document.getElementById("passwordReg").style.borderColor = "#E34234";
-      //     document.getElementById("repasswordReg").style.borderColor = "#E34234";
-      //     alert("Passwords do not match. Please key again.");
-      //     ok = false;
-      // }
-      // else if (password == repassword) {
-      //     if (password.length < 8) {
-      //         alert("Passwords too short. At least 8 characters.");
-      //         ok = false;
-      //     }
-      // }
+      if (password != repassword) {
+          document.getElementById("passwordReg").style.borderColor = "#E34234";
+          document.getElementById("repasswordReg").style.borderColor = "#E34234";
+          alert("Passwords do not match. Please key again.");
+          ok = false;
+      }
+      else if (password == repassword) {
+          if (password.length < 8) {
+              alert("Passwords too short. At least 8 characters.");
+              ok = false;
+          }
+      }
 
       if (password.length < 8) {
         alert("Passwords too short. At least 8 characters.");
@@ -107,7 +107,7 @@ function register() {
         }
       }
     }
-  }
+  });
 
   function logout() {
     sessionStorage.clear();
