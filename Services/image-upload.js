@@ -8,12 +8,12 @@ aws.config.update({
   // Your SECRET ACCESS KEY from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
-  secretAccessKey: "scv2mKofr0TsyrgGdeMBaDkpgjeoDDYFm3xhDKfo",
+  secretAccessKey: "L7K0Z1FXYK2p8jd39cFy+G2MstjekwLA4gFmyZZu",
   // Not working key, Your ACCESS KEY ID from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
-  accessKeyId: "ASIA6EZFZYG2PC43P7DT",
-  sessionToken: "FQoGZXIvYXdzEGQaDMGCh1h7zRyRmk8eKyL1AuLieXXlP7N659XI6044xNlmk18N7y5w2NJHQxHN5QsL3+JlF6ML5Qz7WWWZUoJmaPrzz780CrolLY3jmApE8cQexDLtjD4A4dHDHatkUmeGnLBukFOes+CYBLhLG/9Kto2VjigAKLYS+L+xVkJRvKV+PzgJ9Ac+OFP/khxSBouQjpcvUQiAe+nmNejhahpVOPki7AaUyEo111PK7ZJFSAqx6daGnKRXE6T8joXF0PQJ7hsNj1n0NWBkwYu+KmPG3RuD4IkM/xDeAI4Adeq2HeoiDlqeaWNUgdpLaWFtM9H/H2wSg6xAtErc3DsBl7OVKNj5haSMBJ7M93wxYPxvgR7Npf2tle0iG2aRaO2ArScMO6wHb3kjme6eeaSqoRNTx8IalrVppo+YTaKEMinhV390j/PWYYzxxr4O3oukUKXKzbSQiNsX1R9hBPHBcVhbEMn3doY/d7m+9bXWz6cIWPW/naHdwpHeZgwroKz75XAb5zadI1go0b2K4wU=",
+  accessKeyId: "ASIA6EZFZYG2NCJNGOWP",
+  sessionToken: "FQoGZXIvYXdzEGYaDErk8CG+UMtwVjArqyL1Ai5jr1KZ0h5TiO9FIX8oZA37ToVktGY0ymeohDy+e3cYMh+faulvSs1lbOTN73fUrrdWcSZYa6XifdHmcIgYJ3g7Zk7bDhbn1QdbZafcEytvma4h7XoEaQgbUXVQZev4XrmES6TzeO3p+mHodk+zR8ZxFAKz5o4qVywScTtqLEzVU2dlF/+TudVAQLWxJ62iVvqt95E1dEj5ktuX1cDILqPOULlT1q+g1ZR3oJC3Bgl35YVurAyDzSbvDpF6Qu20TU/0B9N2L+hAmcLRJDa02K65uQVqZ8cZDJPmfSwiP7lkgtirgBk4txxo4yo7sHuoSD5zQn0WcQ5LIxIe+9RxD6/Ov8+uSbmrDyx8Fmhx/vF8nBSgfatukFTvhBk3iWW7ChY8iprC8rudu9TXbThpRg/wZ2p+/lN5v0KYOKCJV6e/UuzungCOOgWLKfmWq5xtVI262Ho79tLIhCjH9zgVoVTVu9hCXVY6n4+cKrYHHjwUKD12ZQwo8vGK4wU=",
     region: 'ap-southeast-1' // region of your bucket
 });
 
@@ -46,7 +46,7 @@ const upload = multer({
 // https://stackoverflow.com/questions/32702431/display-images-fetched-from-s3
 
 //ar s3Url = 'https://s3-us-east-1.amazonaws.com/cscimageuploading/';
-var bucket = new aws.S3({params: {Bucket: 'cscimageuploading' }});
+var bucket = new aws.S3({params: {Bucket: 'cscimageupload' }});
   bucket.listObjects(function (err, data) {
     if (err) {
       console.log(err);

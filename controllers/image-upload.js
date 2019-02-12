@@ -6,18 +6,17 @@ var aws = require('aws-sdk');
 
 const singleUpload = upload.single('image');
 
-
 aws.config.update({
   // Your SECRET ACCESS KEY from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
-  secretAccessKey: "NEs77VUtLnU5rT77+jglx/kJBlbnlLL+4RhCLLLz",
+  secretAccessKey: "Q3WVBK6s0qKM9hxVUNv/4KlhUPAc/QOkT5ezE259",
   // Not working key, Your ACCESS KEY ID from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
-  accessKeyId: "ASIA6EZFZYG2L3ZKQJUY",
-  sessionToken: "FQoGZXIvYXdzEGUaDAAST1f9Aaqn0OPHliL1Au4KKUiSZrl43m36tdJ+IQcA3WlPVcgslsM6YQKNbrUsobL/FfkwrNCce+Licxo/nf3lDNXJ2xcR0PcT97pcAa4a6Eh8oORv0TekWR0azROuIahEpRha2oTZqMaK6o+rVKWM79c0EzTOuzrEM3lU0AGxTGsnKUsrtO5dr6Ts3yGYcpysmSpK/N+hq5e8jXEwgzHwlSYPFLF3kTXiW4Ty+DpO/ww8yo0DP1669fsmxzy79ygjLBIeROVusfVxjgZEnzRz+CgJpkIuGdcaCRCvxf/D3oc0PwpyEh2R6dISHC+DCFcRg8oWLv74R+8eioDn7R+4BrJXOZiqFj5pmkLAOLTldEz5fRh04X/vWXz9GwU28kG33lPEeAhqMcjgU8gS0l4DSeA3g3JXAORpzF81HdTI3oIvTnKyLji2Gz5lwvxgns+1IPuYMutphovlN0PJ5rsYQPNOxhS+D8N94y0F7yPwd+Jdp48S16Y5M7U53lzUud0UVs0o5N2K4wU=", 
-  region: 'ap-southeast-1' // region of your bucket
+  accessKeyId: "ASIA6EZFZYG2AZOER25D",
+  sessionToken: "FQoGZXIvYXdzEGYaDPfacMchLg4rhguy0SL1AmEimoylM157wQHMo54WMtZM7WvyvgDVuNv45kHZw70smziK4EVHSuPK5sQKXoJ4+g054fUiCbmDRIVSrrRvIU6UaulqtzYhsZJpwMS61AaRxas1b/UVNhbwUItc+OnIXsiXIYfzROoFFE8/1DkRoKBIwdCK2UhRngF0y61o+OkYnLhLW5RxHDrn0IuZiedFx0/FI5zxhd5ilhm3U9jBu18qC36MTgsDnwVxr5wt0JM9X73DSmqVsGZWY6nyIvJYz+I2ikBt/yy0J4ecQslK/kwxT7WbTVybWEZbAbVM8cP6p6VIZ7yLvG4AHIJowoIV+kMnH5oaMSLTNzSS/m0xPwK6IZKLCr+FSXHhaTQkkp7pBb9ucrytGgJHSKdAZ8EOz2FbwQYewzN3KYhqiFznELfLp7bDYK8hNNf2oLGnVxWsdM7PlvPtuhmmgcd37lRlDQcouLZCZZ0tfjGSo1oAVyoUWoaNI38AZ5wKtbpbyRjciJKXc0Mo6fKK4wU=",
+    region: 'ap-southeast-1' // region of your bucket
 });
 
 var ddb = new aws.DynamoDB({ apiVersion: '2012-08-10' });

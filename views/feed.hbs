@@ -84,13 +84,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Mark</td>
-                        <td>
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                data-target="#viewModal">View and Comment</button>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </main>
@@ -103,7 +96,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <img id="image" class="card-img-top mb-3"
-                        src="http://localhost:3000/getOneImage?image_path=1549964807263.jpg&userid=plswork">
+                        src="#">
                     <p id="description" class="card-text">Here is my dog Rubbie, he likes to frolick in the snow and make doggie
                         snowangels! #haha #dog</p>
                     <div id="disqus_thread"></div>
@@ -150,10 +143,12 @@
             type: 'GET',
             contentType: 'application/json; charset=utf-8'
         }).done(function (data) {
-            $.each(data, function (key, value) {
+            var tableData = '';
+            $.each(data.Items, function (key, value) {
+                
                 tableData += '<tr>';
                 tableData += '<td>' + value.image_path.S + '</td>';
-                tableData += '<td>button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal" data-imagepath="'+value.image_path.S'" data-description="' + value.description.S + '" data-userid="' + value.userid.S + '">View and Comment</button></td>';
+                tableData += '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal" data-imagepath="'+value.image_path.S+'" data-description="' + value.description.S + '" data-userid="' + value.userid.S + '">View and Comment</button></td>';
                 tableData += '</tr>';
             });
             $('tbody', '#imageTable').append(tableData);
@@ -175,17 +170,17 @@
                 image_path : image_path,
                 userid : userID
             }
-            $.ajax({
-                data: 
+            modal.find('#image').attr("src", "http://localhost:3000/getOneImage?image_path="+image_path+"&userid="+userID+"")
+            /*$.ajax({
+                data: query,
                 url: "/getOneImage",
                 type: 'GET',
                 contentType: 'application/json; charset=utf-8'
             }).done(function (data) {
-                $.each(JSON.parse(data), function (key, value) {
-                    modal.find('#description').text(value.name);
-                    modal.find('#image').attr("src", value.);
-                });
-            });
+                console.log(data);
+                //modal.find('#description').text(value.name);
+                modal.find('#image').attr("src", 'data:image/png;base64,' + data);
+            });*/
         });
     </script>
 </body>
