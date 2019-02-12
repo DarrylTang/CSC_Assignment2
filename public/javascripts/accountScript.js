@@ -3,6 +3,8 @@ $('#registerBtn').click(function () {
   var password = document.getElementById("passwordReg").value;
   var name = document.getElementById("nameReg").value;
   var repassword = document.getElementById("rePasswordReg").value;
+  var captcha = grecaptcha.getResponse().toString();
+  
   
   var ok = true;
   if (document.getElementById("registerForms").checkValidity()) {
@@ -18,16 +20,12 @@ $('#registerBtn').click(function () {
         ok = false;
       }
     }
-
-    if (password.length < 8) {
-      alert("Passwords too short. At least 8 characters.");
-    }
-    else {
+    if (ok == true) {
       var regData = {
         email: email,
         name: name,
         password: password,
-        recaptcha: grecaptcha.getResponse(),
+        recaptcha: captcha,
         hostName: window.location.host
       };
       $.ajax({
@@ -37,7 +35,12 @@ $('#registerBtn').click(function () {
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
-          console.log("Account Created for " + data);
+          if (data.success == true){
+            console.log("Account Created for " + data);
+          }
+          else {
+            alert(data.errorMsg);
+          }
           
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
