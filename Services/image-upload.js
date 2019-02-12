@@ -27,15 +27,16 @@ const fileFilter = (req, file, cb) => {
 }
 
 const upload = multer({
+  fileFilter,
   storage: multerS3({
     s3: s3,
-    bucket: 'cscimageupload',
+    bucket: 'cscimagetest',
     //acl: 'public-read',
     metadata: function (req, file, cb) {
       cb(null, {fieldName: file.fieldname , userid: 'plswork', description: 'omg i like this image alot pls like me'});
     },
     key: function (req, file, cb) {
-      cb(null, file.originalname)
+      cb(null, Date.now().toString()+'.jpeg')
     }
   })
 })
