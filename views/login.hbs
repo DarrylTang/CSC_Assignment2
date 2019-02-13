@@ -130,6 +130,18 @@
                                 console.log("Logged in " + data);
                                  window.location.href = "http://localhost:3000/";
                             }
+                            fetch(new Request('/api/AuthState/' + email,
+                                    {
+                                        method: 'GET',
+                                        headers: {
+                                            Authorization: 'Bearer ' + data.token
+                                        }
+                                    })).then(function (response) {
+                                        return response.json();
+                                    }).then(function (state) {
+                                        if (state.authState == 1) {
+                                            sessionStorage.setItem("token", data.token);
+                                        }
                             else {
                                 alert(data.errorMsg);
                             }
