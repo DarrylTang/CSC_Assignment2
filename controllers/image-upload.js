@@ -10,12 +10,12 @@ aws.config.update({
   // Your SECRET ACCESS KEY from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
-  secretAccessKey: "Q3WVBK6s0qKM9hxVUNv/4KlhUPAc/QOkT5ezE259",
+  secretAccessKey: "<SECRET ACCESS KEY>",
   // Not working key, Your ACCESS KEY ID from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
-  accessKeyId: "ASIA6EZFZYG2AZOER25D",
-  sessionToken: "FQoGZXIvYXdzEGYaDPfacMchLg4rhguy0SL1AmEimoylM157wQHMo54WMtZM7WvyvgDVuNv45kHZw70smziK4EVHSuPK5sQKXoJ4+g054fUiCbmDRIVSrrRvIU6UaulqtzYhsZJpwMS61AaRxas1b/UVNhbwUItc+OnIXsiXIYfzROoFFE8/1DkRoKBIwdCK2UhRngF0y61o+OkYnLhLW5RxHDrn0IuZiedFx0/FI5zxhd5ilhm3U9jBu18qC36MTgsDnwVxr5wt0JM9X73DSmqVsGZWY6nyIvJYz+I2ikBt/yy0J4ecQslK/kwxT7WbTVybWEZbAbVM8cP6p6VIZ7yLvG4AHIJowoIV+kMnH5oaMSLTNzSS/m0xPwK6IZKLCr+FSXHhaTQkkp7pBb9ucrytGgJHSKdAZ8EOz2FbwQYewzN3KYhqiFznELfLp7bDYK8hNNf2oLGnVxWsdM7PlvPtuhmmgcd37lRlDQcouLZCZZ0tfjGSo1oAVyoUWoaNI38AZ5wKtbpbyRjciJKXc0Mo6fKK4wU=",
+  accessKeyId: "<ACCESS ID>",
+  sessionToken: "<SESSION TOKEN>",
     region: 'ap-southeast-1' // region of your bucket
 });
 
