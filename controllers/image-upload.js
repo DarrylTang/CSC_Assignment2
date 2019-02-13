@@ -11,12 +11,12 @@ aws.config.update({
   // Your SECRET ACCESS KEY from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
-  secretAccessKey: "scv2mKofr0TsyrgGdeMBaDkpgjeoDDYFm3xhDKfo",
+  secretAccessKey: "Rslq70OcriZgVN+Ps1ZVYYXnmjhyIiaSMdOaiiNt",
   // Not working key, Your ACCESS KEY ID from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
-  accessKeyId: "ASIA6EZFZYG2PC43P7DT",
-  sessionToken: "FQoGZXIvYXdzEGQaDMGCh1h7zRyRmk8eKyL1AuLieXXlP7N659XI6044xNlmk18N7y5w2NJHQxHN5QsL3+JlF6ML5Qz7WWWZUoJmaPrzz780CrolLY3jmApE8cQexDLtjD4A4dHDHatkUmeGnLBukFOes+CYBLhLG/9Kto2VjigAKLYS+L+xVkJRvKV+PzgJ9Ac+OFP/khxSBouQjpcvUQiAe+nmNejhahpVOPki7AaUyEo111PK7ZJFSAqx6daGnKRXE6T8joXF0PQJ7hsNj1n0NWBkwYu+KmPG3RuD4IkM/xDeAI4Adeq2HeoiDlqeaWNUgdpLaWFtM9H/H2wSg6xAtErc3DsBl7OVKNj5haSMBJ7M93wxYPxvgR7Npf2tle0iG2aRaO2ArScMO6wHb3kjme6eeaSqoRNTx8IalrVppo+YTaKEMinhV390j/PWYYzxxr4O3oukUKXKzbSQiNsX1R9hBPHBcVhbEMn3doY/d7m+9bXWz6cIWPW/naHdwpHeZgwroKz75XAb5zadI1go0b2K4wU=",
+  accessKeyId: "ASIAXIJZVM7MOV2PKQE5",
+  sessionToken: "FQoGZXIvYXdzEGUaDDsvNJ+iIFbXxAPNJSL5Aq8VcAXhRHhgo9q0LX9eqgY2vNimK2E58ULPzLlcEfSt6nAg4nX6Hmx9sffujXQ3fP/qG0RXEOJ+yko/nftOtzEnaYiTESQds5+qf+zAMS7gR74cjR4p9VJsVf0f1KNrnRRaMdyLAhiIFwqVt1YtJ5jHsYV4mFUn0ODPKFGyR2TgdUExnASHZOdzvV0liZIA0p2uj2hUaBcEeZ5WLdyQuU/Q/0W2lmGAfv1Stw1JN6bkTzWebVhg5JKGeq/YWZ/Z3kr7JWaYJPJcEolqZJsOhC2KqpeOuTCVPgDwz+tCbEUBkd6Volod6V1Z/4DpC7pccdqVHf0PAFaR29HakybqYA5v86LEot84XJDoO1Ll+9aC2YMhUWoHldoFn43VuPalDwYg7quTJgx2U6vWRgVAteV/kXBaaOtDlj0LbveuoF8CwEKWcfAABnL4R9xoINJRaGD5fhWqYMPvtPrYr6RBH9JDNY+Hh7r2w/OZh5fJbYxhGyCraAJbofT0KPTWiuMF",
     region: 'ap-southeast-1' // region of your bucket
 });
 
