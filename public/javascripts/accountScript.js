@@ -28,6 +28,8 @@ $('#registerBtn').click(function () {
         recaptcha: captcha,
         hostName: window.location.host
       };
+      
+      
       $.ajax({
         data: JSON.stringify(regData),
         dataType: 'json',
@@ -37,6 +39,7 @@ $('#registerBtn').click(function () {
         success: function (data) {
           if (data.success == true){
             console.log("Account Created for " + data);
+            window.location.href = "http://localhost:3000/";
           }
           else {
             alert(data.errorMsg);

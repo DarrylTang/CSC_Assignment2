@@ -10,11 +10,11 @@ aws.config.update({
     // Your SECRET ACCESS KEY from AWS should go here,
     // Never share it!
     // Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
-    secretAccessKey: "IZxkRBuBUrFPhqhrh8w9MzSzr+DfCYIyscMW/rMD",
+    secretAccessKey: "INSERT SECRET ACCESS KEY",
     // Not working key, Your ACCESS KEY ID from AWS should go here,
     // Never share it!
     // Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
-    accessKeyId: "AKIAJQ7WMYCEPABVB7CQ",
+    accessKeyId: "INSERT ACCESS KEY ID",
     region: 'ap-southeast-1' // region of your bucket
 });
 
@@ -22,7 +22,7 @@ aws.config.update({
 var ddb = new aws.DynamoDB({ apiVersion: '2012-08-10' });
 // for firebase 
 var firebaseConfig = {
-    apiKey: "AIzaSyBiReRUpgbfVWb2QeUaGrtFQS3NYdrm2r4",
+    apiKey: "API KEY",
     authDomain: "cscassignment-6c46c.firebaseapp.com",
     databaseURL: "https://cscassignment-6c46c.firebaseio.com",
     projectId: "cscassignment",
@@ -86,7 +86,7 @@ app.post('/register', jsonParser, function (req, res) {
                             console.log("Error", err);
                         } else {
                          //   console.log("Success", data); 
-                            //res.send({"success": true});
+                        res.send({"success": true});
                         }
                     });
                     // for add to db in aws 

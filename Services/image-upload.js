@@ -8,13 +8,13 @@ aws.config.update({
   // Your SECRET ACCESS KEY from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.SECRET_ACCESS_KEY
-  secretAccessKey: "AHHU3i9kOvy81xXreyfoXX/UwxmG4py0WlSSOheL",
+  secretAccessKey: "<SECRET ACCESS KEY>",
   // Not working key, Your ACCESS KEY ID from AWS should go here,
   // Never share it!
   // Setup Env Variable, e.g: process.env.ACCESS_KEY_ID
-  accessKeyId: "ASIA6EZFZYG2GOQGQ3NY",
-  sessionToken: "FQoGZXIvYXdzEGMaDHdi9Qv5p/bF75ikeiL1AoEVGL8b1ckTH+QMBQh9FY1I8BJoHilBAsFPGlCSn0J+wjGabZY4jYQBAHIH5UEAoqjakwsrS6mhs4tvwO/R+JqY/gHHG72+JBjFrWmdcGzcdgnEkUVTesV4JubQmUL5Gj4Gi4SpBK+KcvCkdv09fLEO3oW4YwblHoOaie8Qt5QrE6++0wH2n9qN6pwYI7c+kC1qkdDGHBeQ8bsP0XlT3QjBBAtMSw/Il4dXaMl/OtBCdsWuePE7e6JsjmL7BpBRWp7hXQFEf0heOfFyOFQ7nNikO6PLp0lELE2P+mpF03WQlv8vuyX37oe4pOcLGfGDFBwq06o6zORZd4gXIYvxD9CEepkbEPOnASw+48Yrmwhxfui+LxfUuAOb4p1Qh6e86abdC2UpGANOla8JhLX+7Ty6LdmmwAzM16xc9pi7kOkkf9j4kdO2VnUIW1E2BG8YO4xGb55Gm5ePuZ8HRVAY1DvFH9YbeFfPKGWpY2FoTua/oeE0iswo6KaK4wU=",
-  region: 'ap-southeast-1' // region of your bucket
+  accessKeyId: "<ACCESS ID>",
+  sessionToken: "<SESSION TOKEN>",
+    region: 'ap-southeast-1' // region of your bucket
 });
 
 const s3 = new aws.S3();
@@ -27,6 +27,10 @@ const fileFilter = (req, file, cb) => {
   }
 }
 
+var description = ["I love CSC <3"];
+
+ var index =  0; 
+
 const upload = multer({
   fileFilter,
   storage: multerS3({
@@ -34,7 +38,7 @@ const upload = multer({
     bucket: 'cscimageupload',
     //acl: 'public-read',
     metadata: function (req, file, cb) {
-      cb(null, {fieldName: file.fieldname , userid: 'plswork', description: 'omg i like this image alot pls like me'});
+      cb(null, {fieldName: file.fieldname , userid: 'plswork', description: description[index]});
     },
     key: function (req, file, cb) {
       cb(null, Date.now().toString()+'.jpg')
@@ -42,10 +46,20 @@ const upload = multer({
   })
 });
 
-var urlParams = {Bucket: 'myBucket', Key: 'imageName'};
-s3Bucket.getSignedUrl('getObject', urlParams, function(err, url){
-  console.log('the url of the image is', url);
-})
+
+// https://stackoverflow.com/questions/32702431/display-images-fetched-from-s3
+
+//ar s3Url = 'https://s3-us-east-1.amazonaws.com/cscimageuploading/';
+var bucket = new aws.S3({params: {Bucket: 'cscimageupload' }});
+  bucket.listObjects(function (err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      
+      bucket.allImageData = data.Contents;
+      console.log(data.Contents);
+    }
+  });
 
 module.exports = upload;
 
