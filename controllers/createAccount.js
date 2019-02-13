@@ -50,7 +50,7 @@ app.post('/register', jsonParser, function (req, res) {
         res.send({ "success": false, "errorMsg": "Please complete captcha" });
     }
     else {
-        var secretKey = "6Le40ZAUAAAAALyy3BgGkhQe08NfvKTwGzweEaO0";
+        var secretKey = "CAPTCHA KEY";
         var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey
             + "&response=" + recaptcha + "&remoteip=" + req.connection.remoteAddress;
 
