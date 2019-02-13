@@ -28,6 +28,8 @@ $('#registerBtn').click(function () {
         recaptcha: captcha,
         hostName: window.location.host
       };
+      
+      
       $.ajax({
         data: JSON.stringify(regData),
         dataType: 'json',
